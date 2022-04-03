@@ -4,7 +4,11 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["api/_build.js", "public/build/**"]
+      "outputs": [
+        "apps/remix-app/api/_build.js",
+        "apps/remix-app/public/build/**",
+        "packages/ui/dist/**"
+      ]
     },
     "dev": {
       "dependsOn": ["^build"],
