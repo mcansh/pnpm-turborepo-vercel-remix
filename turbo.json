@@ -5,9 +5,9 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": [
-        "apps/remix-app/api/_build.js",
-        "apps/remix-app/public/build/**",
-        "packages/ui/dist/**"
+        "apps/**/api/_build/**",
+        "apps/**/public/build/**",
+        "packages/**/dist/**"
       ]
     },
     "dev": {

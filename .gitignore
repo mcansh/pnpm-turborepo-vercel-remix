@@ -3,3 +3,8 @@ build
 dist
 .turbo
 .vercel
+.cache
+.env
+.output
+apps/**/public/build
+apps/**/api/_build
