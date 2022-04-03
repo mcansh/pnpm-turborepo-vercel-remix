@@ -19,23 +19,5 @@
   "engines": {
     "node": ">=14.0.0",
     "npm": ">=7.0.0"
-  },
-  "turbo": {
-    "pipeline": {
-      "build": {
-        "dependsOn": [
-          "^build"
-        ],
-        "outputs": [
-          "dist/**"
-        ]
-      },
-      "dev": {
-        "dependsOn": [
-          "^build"
-        ],
-        "cache": false
-      }
-    }
   }
 }
