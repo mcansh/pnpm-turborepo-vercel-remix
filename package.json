@@ -6,6 +6,7 @@
     "packages/*"
   ],
   "scripts": {
+    "clean": "git clean -fdx -e .vercel .",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "format": "prettier --write .",
