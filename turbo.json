@@ -5,7 +5,7 @@
     "build": {
       "dependsOn": ["^build"],
       "outputs": [
-        "apps/**/api/_build/**",
+        "apps/**/api",
         "apps/**/public/build/**",
         "packages/**/dist/**"
       ]
