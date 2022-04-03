@@ -1,14 +1,18 @@
 {
   "$schema": "https://turborepo.org/schema.json",
   "baseBranch": "origin/main",
+  "globalDependencies": ["tsconfig.json"],
   "pipeline": {
     "build": {
+      "dependsOn": ["^build"]
+    },
+    "remix-app#build": {
       "dependsOn": ["^build"],
-      "outputs": [
-        "apps/**/api",
-        "apps/**/public/build/**",
-        "packages/**/dist/**"
-      ]
+      "outputs": ["public/build/**", "api/_build/**"]
+    },
+    "ui#build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
     },
     "dev": {
       "dependsOn": ["^build"],
