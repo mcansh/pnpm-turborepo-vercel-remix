@@ -1,25 +1,25 @@
 {
   "$schema": "https://turborepo.org/schema.json",
   "baseBranch": "origin/main",
-  "globalDependencies": ["tsconfig.json"],
   "pipeline": {
     "build": {
+      "outputs": ["dist/**", ".next/**", "public/dist/**"],
       "dependsOn": ["^build"]
     },
     "remix-app#build": {
       "dependsOn": ["^build"],
-      "outputs": ["public/build/**", "api/_build/**"]
+      "outputs": ["api/index.js", "api/build/**", "public/build/**"]
     },
-    "ui#build": {
-      "dependsOn": ["^build"],
-      "outputs": ["dist/**"]
-    },
-    "dev": {
-      "dependsOn": ["^build"],
-      "cache": false
+    "test": {
+      "outputs": ["coverage/**"],
+      "dependsOn": []
     },
     "lint": {
+      "dependsOn": ["^build"],
       "outputs": []
+    },
+    "dev": {
+      "cache": false
     }
   }
 }

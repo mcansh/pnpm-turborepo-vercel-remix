@@ -10,11 +10,14 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "format": "prettier --write .",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "postinstall": "patch-package"
   },
   "dependencies": {
+    "patch-package": "6.4.7",
+    "postinstall-postinstall": "2.1.0",
     "prettier": "^2.5.1",
-    "turbo": "^1.1.10"
+    "turbo": "^1.2.5"
   },
   "engines": {
     "node": ">=14.0.0",

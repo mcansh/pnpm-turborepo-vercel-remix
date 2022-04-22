@@ -1,0 +1,65 @@
+diff --git a/node_modules/@remix-run/dev/compiler/plugins/serverBareModulesPlugin.js b/node_modules/@remix-run/dev/compiler/plugins/serverBareModulesPlugin.js
+index dede8a5..cdf9abe 100644
+--- a/node_modules/@remix-run/dev/compiler/plugins/serverBareModulesPlugin.js
++++ b/node_modules/@remix-run/dev/compiler/plugins/serverBareModulesPlugin.js
+@@ -124,8 +124,7 @@ function isBareModuleId(id) {
+ 
+ function warnOnceIfEsmOnlyPackage(packageName, fullImportPath, onWarning) {
+   try {
+-    let packageDir = resolveModuleBasePath(packageName, fullImportPath);
+-    let packageJsonFile = path__default["default"].join(packageDir, "package.json");
++    let packageJsonFile = resolveModuleBasePath(packageName, fullImportPath);
+ 
+     if (!fs__default["default"].existsSync(packageJsonFile)) {
+       console.log(packageJsonFile, `does not exist`);
+@@ -162,31 +161,35 @@ function warnOnceIfEsmOnlyPackage(packageName, fullImportPath, onWarning) {
+     // we warned earlier if a package is used without being in package.json
+     // if the build fails, the reason will be right there
+   }
+-} // https://github.com/nodejs/node/issues/33460#issuecomment-919184789
+-// adapted to use the fullImportPath to resolve sub packages like @heroicons/react/solid
+-
++}
+ 
+ function resolveModuleBasePath(packageName, fullImportPath) {
+   let moduleMainFilePath = require.resolve(fullImportPath);
+ 
+-  let packageNameParts = packageName.split("/");
+-  let searchForPathSection;
++  let moduleMainFileDirectory = path__default["default"].dirname(moduleMainFilePath);
++  let packageJsonFile = path__default["default"].join(moduleMainFileDirectory, "package.json");
+ 
+-  if (packageName.startsWith("@") && packageNameParts.length > 1) {
+-    let [org, mod] = packageNameParts;
+-    searchForPathSection = `node_modules${path__default["default"].sep}${org}${path__default["default"].sep}${mod}`;
+-  } else {
+-    let [mod] = packageNameParts;
+-    searchForPathSection = `node_modules${path__default["default"].sep}${mod}`;
++  if (fs__default["default"].existsSync(packageJsonFile)) {
++    return packageJsonFile;
+   }
+ 
+-  let lastIndex = moduleMainFilePath.lastIndexOf(searchForPathSection);
++  let parentDirectory = path__default["default"].dirname(moduleMainFileDirectory);
++
++  while (parentDirectory !== moduleMainFileDirectory) {
++    console.log({
++      parentDirectory,
++      moduleMainFileDirectory
++    });
++    packageJsonFile = path__default["default"].join(parentDirectory, "package.json");
++
++    if (fs__default["default"].existsSync(packageJsonFile)) {
++      return packageJsonFile;
++    }
+ 
+-  if (lastIndex === -1) {
+-    throw new Error(`Couldn't resolve the base path of "${packageName}". Searched inside the resolved main file path "${moduleMainFilePath}" using "${searchForPathSection}"`);
++    parentDirectory = path__default["default"].dirname(parentDirectory);
+   }
+ 
+-  return moduleMainFilePath.slice(0, lastIndex + searchForPathSection.length);
++  throw new Error(`Couldn't resolve the base path of "${packageName}". Searched inside the resolved main file path "${moduleMainFilePath}" and its parent directories.`);
+ }
+ 
+ exports.serverBareModulesPlugin = serverBareModulesPlugin;
