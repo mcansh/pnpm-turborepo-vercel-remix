@@ -1,6 +1,7 @@
 {
   "name": "remix-example-turborepo-vercel",
   "private": true,
+  "packageManager": "pnpm@7.0.0-rc.3",
   "workspaces": [
     "apps/*",
     "packages/*"
@@ -10,12 +11,9 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "format": "prettier --write .",
-    "lint": "turbo run lint",
-    "postinstall": "patch-package"
+    "lint": "turbo run lint"
   },
   "dependencies": {
-    "patch-package": "6.4.7",
-    "postinstall-postinstall": "2.1.0",
     "prettier": "^2.5.1",
     "turbo": "^1.2.5"
   },

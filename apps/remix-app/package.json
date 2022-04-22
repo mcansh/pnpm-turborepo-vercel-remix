@@ -10,17 +10,17 @@
     "dev": "remix dev"
   },
   "dependencies": {
-    "@remix-run/node": "^1.4.1",
-    "@remix-run/react": "^1.4.1",
-    "@remix-run/vercel": "^1.4.1",
+    "@remix-run/node": "v0.0.0-experimental-7e420ee3",
+    "@remix-run/react": "v0.0.0-experimental-7e420ee3",
+    "@remix-run/vercel": "v0.0.0-experimental-7e420ee3",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "ui": "*"
+    "ui": "workspace:*"
   },
   "devDependencies": {
-    "@remix-run/dev": "^1.4.1",
-    "@remix-run/eslint-config": "^1.4.1",
-    "@remix-run/serve": "^1.4.1",
+    "@remix-run/dev": "v0.0.0-experimental-7e420ee3",
+    "@remix-run/eslint-config": "v0.0.0-experimental-7e420ee3",
+    "@remix-run/serve": "v0.0.0-experimental-7e420ee3",
     "@types/react": "^18.0.6",
     "@types/react-dom": "^18.0.2",
     "typescript": "^4.6.2"
