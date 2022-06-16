@@ -12,7 +12,7 @@ export default function Index() {
       <h1 style={{ fontWeight: "normal", margin: 0 }}>
         Welcome to Remix + Turborepo + Vercel example
       </h1>
-      <Button />
+      <Button text="booper" />
     </div>
   );
 }

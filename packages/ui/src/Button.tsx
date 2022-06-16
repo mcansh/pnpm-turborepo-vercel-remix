@@ -1,5 +1,5 @@
 import * as React from "react";
 
-export function Button() {
-  return <button type="button">Boop</button>;
+export function Button({ text = "Boop" }: { text?: string }) {
+  return <button type="button">{text}</button>;
 }
