@@ -14,8 +14,8 @@
     "lint": "turbo run lint"
   },
   "dependencies": {
-    "prettier": "^2.6.2",
-    "turbo": "^1.2.5"
+    "prettier": "^2.7.0",
+    "turbo": "^1.2.16"
   },
   "engines": {
     "node": ">=14.0.0",
