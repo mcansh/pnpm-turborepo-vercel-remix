@@ -16,7 +16,7 @@
     "dev": "tsup src/index.tsx --format esm,cjs --watch --dts --external react"
   },
   "devDependencies": {
-    "@types/react": "18.0.15",
+    "@types/react": "18.0.17",
     "@types/react-dom": "18.0.6",
     "react": "18.2.0",
     "tsup": "6.2.1",

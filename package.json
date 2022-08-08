@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "prettier": "2.7.1",
-    "turbo": "1.4.0"
+    "turbo": "1.4.2"
   },
   "engines": {
     "node": ">=14.0.0",
