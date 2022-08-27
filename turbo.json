@@ -20,6 +20,9 @@
     },
     "dev": {
       "cache": false
+    },
+    "typecheck": {
+      "cache": false
     }
   }
 }
