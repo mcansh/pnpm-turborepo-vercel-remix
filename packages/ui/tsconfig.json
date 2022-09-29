@@ -3,6 +3,8 @@
   "include": ["src"],
   "exclude": ["dist", "node_modules"],
   "compilerOptions": {
-    "lib": ["ES2015"]
+    "lib": ["ES2015"],
+    "outDir": "dist",
+    "declaration": true
   }
 }
